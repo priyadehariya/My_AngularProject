@@ -1,0 +1,25 @@
+h1{
+  padding: 10px 10px;
+  margin: 10px 20px;
+margin-top: 8px;
+  width: 90%;
+  background-color: rgb(22, 22, 247);
+  text-align: center;
+  color: rgb(255, 255, 255);
+}
+
+body{
+
+  margin-left: 35%;
+  display: inline-block;
+}
+
+button{
+  margin-top: 20px;
+}
+
+form{
+  margin: 5px 5px;
+  border: rgb(46, 46, 235);
+  border-radius: 8px;
+}

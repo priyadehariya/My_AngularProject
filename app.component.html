@@ -1,0 +1,39 @@
+<div  style="height:100%;">
+
+
+  <p  style="position: relative; ">
+    <mat-toolbar color="primary">
+
+        <button  mat-icon-button class="example-icon"aria-label="Example icon-button with menu icon"  (click)="Nav.toggle()" >
+
+
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>Astoria Training Attendance System</span>
+    
+      <span class="example-spacer"></span>
+
+    </mat-toolbar>
+  </p>
+  <div>
+  <h1>{{ name | trim }}</h1></div>
+<mat-sidenav-container   style="height:100%; " >
+  <mat-sidenav #Nav mode="side"  opened >
+   <mat-nav-list   style="height:100%; background-color: rgb(205, 205, 205); padding: 10px 10px;" >
+    <a  class="main"  mat-list-item routerLink="/home"> <mat-icon>home</mat-icon> Home</a>
+    <a mat-list-item routerLink="/calculator">  <mat-icon>exposure</mat-icon>calculator</a>
+    <a mat-list-item routerLink="/practice"> <mat-icon>star_half</mat-icon>practice</a>
+    <a mat-list-item routerLink="/employee_details"> <mat-icon>group</mat-icon>Employee Details</a>
+    <a mat-list-item routerLink="/employee_attendance"> <mat-icon>access_time</mat-icon>Employee Attendance</a>
+    <a mat-list-item routerLink="/dashboard"> <mat-icon>pie_chart</mat-icon>Dashboard</a>
+    <!-- <a mat-list-item routerLink="/addemployee"> <mat-icon>pie_chart</mat-icon>Addemployee</a> -->
+  </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content >
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+</div>
+
+
+

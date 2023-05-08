@@ -1,0 +1,39 @@
+table {
+
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+th.mat-header-cell {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+
+
+  background-color: rgb(15, 66, 233);
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+/*
+for ulternate table row color
+
+tr:nth-child(even) {
+  background-color: #d6f7f7;
+} */
+
+tr:nth-child(even) {background: rgb(228, 247, 250)}
+tr:nth-child(odd) {background: #FFF}
+/* ::ng-deep is what's called a shadow-piercing descendant combinator */
+::ng-deep .mat-sort-header-arrow {
+  color: #fff;
+}
+.back{
+
+margin: 20px 50px;
+
+}
+
+

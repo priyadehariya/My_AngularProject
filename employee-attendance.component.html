@@ -1,0 +1,95 @@
+
+<h1 style="margin-left:5%;margin-right: 10%;background-color: blue;text-align: center;font-size: 20px;color: #ffff;"> <b>Employee Attendance</b></h1>
+
+<form  [formGroup]="Attendanceform">
+<mat-label style="margin: 0px 20px;">Date</mat-label>&nbsp;
+<mat-form-field class="example-full-width" appearance="fill">
+  <mat-label>Choose a date</mat-label>
+  <input matInput [max]="maxDate" [matDatepicker]="picker" [(ngModel)]="FilterClockDate" id="FilterClockDate" formControlName="FilterClockDate" required>
+  <mat-error *ngIf="myError('FilterClockDate', 'required')">Date is required</mat-error>
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field><br>
+        <mat-label style="margin-left:20px;">Company</mat-label>
+        <mat-form-field style="margin: 0px 20px;" >
+          <mat-select id="companyId"  formControlName="FilterCompanyID" [(ngModel)]="FilterCompanyID"required id="FilterCompanyID" placeholder="Company">
+
+            <mat-option *ngFor="let company of companies" [value]="company.companyId">{{company.companyName}}</mat-option>
+
+          </mat-select>
+          <mat-error *ngIf="myError('FilterCompanyID', 'required')">Company is required</mat-error>
+        </mat-form-field>
+      </form>
+<br>
+        <button mat-raised-button color="primary" style="margin-left:20%;" (click)="Load()">Load</button>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="DisableBtn">Save</button>
+
+        <br>
+<div *ngIf='showTable'>
+<mat-form-field style="margin-left: 25px;" appearance="standard">
+  <mat-label>Filter</mat-label>
+  <input  matInput (keyup)="applyFilter($event)" placeholder=" " #input>
+</mat-form-field>
+
+<table mat-table [dataSource]="dataSource" matSort  >
+  <ng-container matColumnDef="employeeKey" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>EmployeeKey
+    </th>
+    <td mat-cell *matCellDef="let element" > {{element.employeeKey}} </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="employeeId" >
+    <th mat-header-cell *matHeaderCellDef mat-sort-header >EmployeeID
+    </th>
+    <td mat-cell *matCellDef="let element" > {{element.employeeId}} </td>
+
+  </ng-container>
+
+
+  <ng-container matColumnDef="employeeName">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Employee Name</th>
+    <td mat-cell *matCellDef="let element"> {{element.employeeName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="ClockDate">
+    <th mat-header-cell *matHeaderCellDef >ClockDate</th>
+    <td mat-cell *matCellDef="let employees"> {{employees.clockDate}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="TimeIn">
+    <th mat-header-cell *matHeaderCellDef >TimeIn</th>
+    <td mat-cell *matCellDef="let element">
+      <input type="time" placeholder="Time In" [(ngModel)]="element.timeIn" required>
+    </td>
+
+  </ng-container>
+
+  <ng-container matColumnDef="TimeOut">
+    <th mat-header-cell *matHeaderCellDef >TimeOut</th>
+    <td mat-cell *matCellDef="let element">
+      <input type="time" placeholder="Time Out" [(ngModel)]="element.timeOut"required >
+    </td>
+
+  </ng-container> 
+
+  <ng-container matColumnDef="Remarks">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Remarks</th>
+    <td mat-cell *matCellDef="let element">
+      <input type="text" placeholder="Remarks"  [(ngModel)]="element.remarks"required >
+    </td>
+
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+
+</table>
+<mat-paginator  style="background-color:  rgb(228, 247, 250);color: #000;width: 80%;margin-left: 20px;" [pageSizeOptions]="[3,10,100]"
+ showFirstLastButtons >
+
+</mat-paginator>
+</div>
+

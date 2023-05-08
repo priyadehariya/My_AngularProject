@@ -1,0 +1,210 @@
+<div id="container"
+  style="background-color:rgb(55, 63, 63) ;color:white; background-size: fixed;margin-left: 0px; margin-top: 0px;">
+  <h1> <b> BUTTONS </b></h1>
+
+  <section>
+    <div class="example-label">Raised</div>
+    <div class="example-button-row">
+      <button mat-raised-button>Basic</button>
+      <button mat-raised-button color="primary">Primary</button>
+      <button mat-raised-button color="accent">Accent</button>
+      <button mat-raised-button color="warn">Warn</button>
+
+
+    </div>
+  </section>
+<br>
+  <hr>
+<br>
+  <h1><b> Progress-Bar</b></h1>
+  <mat-progress-bar style="width: 200px;" mode="indeterminate"></mat-progress-bar>
+  <hr>
+  <h1><b>Select</b></h1>
+  <mat-form-field   appearance="fill">
+    <mat-label style="color:white">Select an option</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option>None</mat-option>
+      <mat-option value="option1">Option 1</mat-option>
+      <mat-option value="option2">Option 2</mat-option>
+      <mat-option value="option3">Option 3</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <p>You selected: {{selected}}</p>
+  <hr>
+  <h1><b>Checkbox</b></h1>
+  <section class="example-section">
+    <mat-checkbox style="color:white" class="example-margin">Check me!</mat-checkbox>
+
+  </section>
+  <br>
+  <hr>
+<br>
+
+  <h1><b>Datepicker</b></h1>
+  <mat-form-field appearance="fill">
+    <mat-label style="color:white" >Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint style="color:white" >MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle style="color:white"  matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+<br>
+  <hr>
+  <br>
+  <h1><b>form-field</b></h1>
+  <mat-form-field appearance="fill">
+    <mat-label style="color:white">Choose</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="option">Name</mat-option>
+      <mat-option value="option">Address</mat-option>
+    </mat-select>
+    <mat-hint align="end" style="color:white">Here's the dropdown arrow </mat-hint>
+  </mat-form-field>
+
+
+<br>
+<hr>
+
+
+
+
+
+
+  <br>
+  <h1><b>Table</b></h1>
+
+  <table   mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="background-color: rgb(174, 161, 141);color: #000;width:70% ;" >
+
+
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header  style="text-align: center;"> <b> No.</b> </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header > <b> Name </b></th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="weight"  >
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header> <b> Weight </b></th>
+      <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="symbol"  >
+      <th mat-header-cell *matHeaderCellDef mat-sort-header   style="text-align: center;" > <b>Symbol</b>  </th>
+      <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+   <mat-paginator  style="background-color: rgb(237, 210, 169);color: #000;" [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+   aria-label="Select page of periodic elements">
+</mat-paginator>
+<br>
+  <hr>
+  <br>
+  <h1><b>Mat-Icon</b></h1>
+
+  <mat-icon>lock_open</mat-icon>  &nbsp;  &nbsp;
+  <mat-icon>query_builder</mat-icon>  &nbsp;  &nbsp;
+  <mat-icon>settings_backup_restore</mat-icon> &nbsp;  &nbsp;
+  <mat-icon>thumb_up</mat-icon>&nbsp;  &nbsp;
+  <mat-icon>alternate_email</mat-icon>&nbsp;  &nbsp;
+  <mat-icon> dialpad</mat-icon>&nbsp;  &nbsp;
+  <mat-icon>loop</mat-icon>&nbsp;  &nbsp;
+  <mat-icon> attach_file</mat-icon>
+  <br>
+  <hr>
+  <br>
+  <h1><b>Dailog</b></h1>
+
+  <ol>
+    <li>
+      <mat-form-field appearance="fill">
+        <mat-label style="color:white" >What's your name?</mat-label>
+        <input matInput [(ngModel)]="name">
+      </mat-form-field>
+    </li>
+    <li>
+      <button mat-raised-button (click)="openDialog()">Pick one</button>
+    </li>
+    <li *ngIf="animal">
+      You chose: <i>{{animal}}</i>
+    </li>
+  </ol>
+  <hr>
+  <br>
+  <h1><b>Slider</b></h1>
+  <mat-slider aria-label="unit(s)"></mat-slider>
+<br>
+  <hr>
+  <br>
+  <h1><b>Toolbar</b></h1>
+  <p>
+    <mat-toolbar color="primary">
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span>My App</span>
+      <span class="example-spacer"></span>
+      <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-toolbar>
+  </p>
+  <br>
+  <hr>
+  <br>
+  <h1><b>Slide-Toggle</b></h1>
+  <mat-slide-toggle>Slide me!</mat-slide-toggle>
+
+  <br>
+  <br>
+  <hr>
+  <br>
+
+  <h1><b>Tab-Group</b></h1>
+
+  <mat-tab-group style="color:white" >
+    <mat-tab  label="Second"> Content 2 </mat-tab>
+    <mat-tab  label="Third"> Content 3 </mat-tab>
+    <mat-tab   label="First"> Content 1 </mat-tab>
+  </mat-tab-group>
+  <br>
+  <br>
+  <hr>
+  <br>
+  <h1><b>Mat-Menu</b></h1>
+ <button mat-button [matMenuTriggerFor]="menu"   style="background-color:white;color: #000;margin-left: 20px;">Menu</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Item 1</button>
+  <button mat-menu-item>Item 2</button>
+</mat-menu>
+
+<br>
+  <hr>
+  <br>
+  <h1><b>Mat-Spinner</b></h1>
+  <mat-spinner></mat-spinner>
+  <br>
+  <hr>
+  <br>
+</div>
+<p>currency</p>
+<div>price:{{price | currency:'INR'}}</div>
+<div>price:{{price | currency:'EUR'}}</div>
+<div>price:{{price | currency:'USD'}}</div>
+<div>price:{{price | currency:'GBP'}}</div>
+
+

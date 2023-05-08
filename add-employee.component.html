@@ -1,0 +1,121 @@
+
+
+<div class="border"  style="margin-top:20px;">
+  <!-- style="  outline: 2px solid blue;   outline-offset: 1em; "  -->
+<h1> {{this.title}}</h1>
+
+  <form [formGroup]="form" novalidate fxLayout="column wrap" fxLayoutAlign="center center" fxLayoutGap="10px" >
+<th>
+      <tr >
+        <td>
+        <label>Employee-Id</label> &nbsp;
+        <mat-form-field >
+          <input matInput id="employeeId" formControlName="employeeId" [(ngModel)]="emp.employeeId" placeholder="Employee-Id" required>
+          <mat-error *ngIf="myError('employeeId', 'required')">Employee Id is required</mat-error>
+          <mat-error *ngIf="myError('employeeId', 'maxlength')">more than 20 character</mat-error>
+          <mat-error *ngIf="myError('employeeId', 'pattern')">Special character are not allowed</mat-error>
+        </mat-form-field>
+      </td>
+      <td>
+        <label>Company</label> &nbsp;&nbsp;
+        <mat-form-field >
+          <mat-select id="companyId" formControlName="companyId" [(ngModel)]="emp.empCompanyId"required placeholder="Company">
+            <mat-option *ngFor="let company of companies" [value]="company.companyId">{{company.companyName}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </td>
+      </tr>
+
+      <tr>
+      <td>
+        <label >First-Name</label> &nbsp;&nbsp;
+        <mat-form-field>
+
+          <input matInput name="empFirstName" formControlName="empFirstName" [(ngModel)]="emp.empFirstName" placeholder="First-Name" required  ng-pattern="/^[a-zA-Z\s]*$/">
+          <mat-hint >Not more then 100 characters long.</mat-hint>
+          <mat-error *ngIf="myError('empFirstName', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="myError('empFirstName', 'maxlength')">invalid Your name</mat-error>
+          <mat-error *ngIf="myError('empFirstName', 'pattern')">only aphabet are allowed</mat-error>
+        </mat-form-field>
+
+      </td>
+    <td>
+
+        <label>Last-Name</label> &nbsp;&nbsp;
+        <mat-form-field>
+         <input matInput name="empLastName" formControlName="empLastName" [(ngModel)]="emp.empLastName" placeholder="Last-Name" required ng-pattern="/^[a-zA-Z\s]*$/">
+         <mat-hint>Not more then 100 characters long.</mat-hint>
+          <mat-error *ngIf="myError('empLastName', 'required')">Name is required</mat-error>
+          <mat-error *ngIf="myError('empLastName', 'maxlength')">invalid Your Lastname</mat-error>
+          <mat-error *ngIf="myError('empLastName', 'pattern')">nly aphabet are allowed</mat-error>
+        </mat-form-field>
+      </td>
+      </tr>
+
+      <tr>
+      <td>
+        <label>Gender</label>&nbsp;&nbsp;&nbsp;
+        <mat-form-field >
+          <mat-select placeholder="Select Gender"  formControlName="empGender" [(ngModel)]="emp.empGender" required>
+            <mat-option value="Male" >Male</mat-option>
+            <mat-option value="Female" >Female</mat-option>
+          </mat-select>
+          <mat-error *ngIf="myError('empGender', 'required')">Gender is required</mat-error>
+      </mat-form-field>
+      </td>
+    <td>
+        <mat-label> Joining Date </mat-label>&nbsp;&nbsp;
+        <mat-form-field>
+          <mat-label style="color:rgb(0, 0, 0)">Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" matInput id="empJoiningDate" formControlName="empJoiningDate"  [(ngModel)]="emp.empJoiningDate" placeholder="Joining Date" required>
+          <mat-hint style="color:rgb(1, 1, 1)">MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle style="color:rgb(12, 11, 11)" matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-error *ngIf="myError('empJoiningDate', 'required')">JoiningDate is required</mat-error>
+        </mat-form-field>
+      </td>
+      </tr>
+
+        <tr>
+          <td>
+        <label> Designation </label>&nbsp;&nbsp;
+         <mat-form-field>
+          <mat-select id="designationId" formControlName="designationId" [(ngModel)]="emp.empDesignationId" placeholder="Designation" >
+            <mat-option [value]="desig.designationId" *ngFor= " let desig of designs ">
+              {{desig.designationName}}
+            </mat-option>
+          </mat-select>
+         </mat-form-field>
+        </td>
+      <td>
+      <mat-label> Resignation Date </mat-label>&nbsp;&nbsp;
+      <mat-form-field >
+        <mat-label style="color:rgb(0, 0, 0)">Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker1" id="empResignationDate" formControlName="empResignationDate" [(ngModel)]="emp.empResignationDate" [disabled]="ResignationDate">
+        <mat-hint style="color:rgb(1, 1, 1)">MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle style="color:rgb(12, 11, 11)" matSuffix [for]="picker1"></mat-datepicker-toggle>
+        <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+    </td>
+    </tr>
+    <tr>
+      <label> Salary Rate </label>&nbsp;&nbsp;
+      <mat-form-field>
+        <input matInput type="number" id="empHourlySalaryRate" formControlName="empHourlySalaryRate" [(ngModel)]="emp.empHourlySalaryRate" required >
+        <mat-error *ngIf="myError('empHourlySalaryRate', 'required')">HourlySalaryRate is required</mat-error>
+        <mat-error *ngIf="myError('empHourlySalaryRate', 'pattern')">HourlySalaryRate is number</mat-error>
+      </mat-form-field>
+    </tr>
+  </th>
+  </form>
+  <body>
+ <button mat-raised-button color="primary" *ngIf="isSave" (click)="save()"
+
+
+
+
+ >Save</button>&nbsp;
+        <button mat-raised-button color="primary"  *ngIf="isUpdate" (click)="update()" > Update </button>&nbsp;
+        <button mat-raised-button color="primary" (click)="close()">Close</button>
+      </body>
+    </div>

@@ -1,0 +1,29 @@
+table {
+  margin: 20px 20px;
+  width: 80%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+th.mat-header-cell {
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  font-size: 15px;
+  text-align: left;
+
+
+  background-color: rgb(15, 66, 233);
+}
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+/* p{
+  margin: 20px 20px;
+
+}
+mat-toolbar{
+  margin: 20px 20px;
+  height: 55px;
+  width: 80%;
+} */
+

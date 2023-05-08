@@ -1,0 +1,83 @@
+
+  .myCalc{
+    position: absolute;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #0f79e3;
+
+  }
+  .btn{
+    display: flex;
+  }
+  .btn-num{
+    display: flex;
+    width: 210px;
+    flex-wrap: wrap;
+  }
+  .btn-signs{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .btn-num button{
+    background-color: rgb(255, 255, 255);
+    border: none;
+    margin: 10px;
+    color: #0f79e3;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .btn-signs button{
+    color: #0f79e3;
+    border: none;
+    margin: 10px;
+    font-size: 20px;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+.btn-extra{
+  display: flex;
+}
+.btn-extra button{
+  color: #0f79e3;
+}
+
+.btn-clear{
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+
+}
+.btn-clear button{
+  color: #0f79e3;
+ border: none;
+  width: 110px;
+  font-size: 30px;
+  padding: 3px;
+  margin: 10px 5px;
+  border-radius: 10px;
+
+}
+
+input{
+  width: 80%;
+  margin: 10px 10px;
+  border: none;
+  border-radius: 16px;
+  font-size: 20px;
+  padding: 10px;
+  font-weight: 100;
+}

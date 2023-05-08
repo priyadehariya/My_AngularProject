@@ -1,0 +1,41 @@
+<div class="myCalc"  style="margin-top:7% ; margin-left: 30%; "    >
+
+
+
+  <input  type="text" [(ngModel)]="show">
+  <div class="btn">
+    <div class="btn-num">
+      <button (click)="fun('1')"><b>1</b></button>
+      <button (click)="fun('2')"><b>2</b></button>
+      <button (click)="fun('3')"><b>3</b></button>
+      <button (click)="fun('4')"><b>4</b></button>
+      <button (click)="fun('5')"><b>5</b></button>
+      <button (click)="fun('6')"><b>6</b></button>
+      <button (click)="fun('7')"><b>7</b></button>
+      <button (click)="fun('8')"><b>8</b></button>
+      <button (click)="fun('9')"><b>9</b></button>
+      <button (click)="fun('0')"><b>0</b></button>
+
+      <div class="btn-extra">
+      <button (click)="fun('.')"><b>.</b></button>
+      <button (click)="back()">back</button>
+      </div>
+
+    </div>
+    <div class="btn-signs">
+      <button (click)="fun('+')"> <b>+</b> </button>
+      <button  (click)="fun('-')"><b>-</b></button>
+      <button (click)="fun('*')"><b>*</b></button>
+      <button (click)="fun('%')"><b>%</b></button>
+
+    </div>
+  </div>
+  <div class="btn-clear">
+    <button id="clear" (click)="clear()" ><b>C</b></button>
+    <button id="equal" (click)="equal()" ><b>=</b></button>
+  </div>
+
+  </div>
+<body style="background-color: rgb(125, 193, 205);">
+
+</body>
